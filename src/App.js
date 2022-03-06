@@ -5,6 +5,7 @@ import songs from "./Data/songs";
 const App = () => {
 
   useState([songs]);
+  // console.log(songs);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
