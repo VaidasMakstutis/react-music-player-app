@@ -7,7 +7,7 @@
     box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
     h3 {
         color: #FFF;
-        font-size: 14px;
+        font-size: 1.5rem;
         text-transform: uppercase;
         font-weight: 400;
         text-align: center;
@@ -19,11 +19,14 @@
     justify-content: center;
     align-items: center;
     select {
+        display: block;
+        width: 95%;
         background-color: #313131;
         color: #FFF;
-        border: 1px solid #FFF;
+        font-size: 1.1rem;
         padding: 20px;
         margin-bottom: 15px;
+        border: 1px solid #FFF;
         cursor: pointer;
         option {
             padding: 3px;

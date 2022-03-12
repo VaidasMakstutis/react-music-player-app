@@ -5,38 +5,39 @@
   margin-bottom: 30px;
   .play-btn {
     display: flex;
-    margin: 0 30px;
+    background-color: #ffce00;
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0 15px;
     padding: 20px;
     border-radius: 50%;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px -10px rgba(255, 255, 255, 0.4), inset -4px -4px -10px rgba(0, 0, 0, 0.4),
       inset 4px 4px 10px rgba(255, 255, 255, 0.4);
     border: none;
     outline: none;
-    background-color: #ffce00;
-    color: #fff;
-    font-size: 24px;
     cursor: pointer;
   }
   .stop-btn {
     display: flex;
-    margin: 0 30px;
+    background-color: #ffce00;
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0 15px;
     padding: 20px;
     border-radius: 50%;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8), -4px -4px -10px rgba(255, 255, 255, 0.4), inset -4px -4px -10px rgba(0, 0, 0, 0.4),
       inset 4px 4px 10px rgba(255, 255, 255, 0.4);
     border: none;
     outline: none;
-    background-color: #ffce00;
-    color: #fff;
-    font-size: 24px;
     cursor: pointer;
   }
   .skip-btn {
     background: none;
+    color: #d1c8c8;
+    font-size: 1.5rem;
+    margin: 8px;
     border: none;
     outline: none;
     cursor: pointer;
-    color: #888;
-    font-size: 18px;
   }
 }
