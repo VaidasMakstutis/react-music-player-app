@@ -1,5 +1,6 @@
 .player {
     display: block;
+    width: 500px;
     background-color: #313131;
     padding: 50px;
     border-radius: 16px;
@@ -10,5 +11,22 @@
         text-transform: uppercase;
         font-weight: 400;
         text-align: center;
+    }
+}
+
+.container-songs-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    select {
+        background-color: #313131;
+        color: #FFF;
+        border: 1px solid #FFF;
+        padding: 20px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        option {
+            padding: 3px;
+        }
     }
 }
