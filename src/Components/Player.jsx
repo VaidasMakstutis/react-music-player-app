@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
+import Search from "./Search";
 import songs from "../Data/songs";
 // const { getAudioDurationInSeconds } = require('get-audio-duration');
 
@@ -11,7 +12,7 @@ const Player = props => {
   useEffect(() => {
     if (isPlaying) {
       audioElement.current.play();
-      console.log("Duration: ", (audioElement.current.duration / 60).toFixed(), (audioElement.current.duration % 60).toFixed());
+      // console.log("Duration: ", (audioElement.current.duration / 60).toFixed(), (audioElement.current.duration % 60).toFixed());
     } else {
       audioElement.current.pause();
     }
@@ -80,6 +81,7 @@ const Player = props => {
           ))}
         </select>
       </div>
+      <Search />
     </div>
   );
 };
