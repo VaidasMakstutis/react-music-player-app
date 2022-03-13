@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
 import songs from "../Data/songs";
+// const { getAudioDurationInSeconds } = require('get-audio-duration');
 
 const Player = props => {
   const audioElement = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
+  
   useEffect(() => {
     if (isPlaying) {
       audioElement.current.play();
@@ -15,6 +16,14 @@ const Player = props => {
       audioElement.current.pause();
     }
   }, [isPlaying]);
+  
+  // useEffect(() => {
+  //   songs.forEach(element => {
+  //     getAudioDurationInSeconds(element.src).then((duration) => {
+  //       console.log(duration);
+  //     })
+  //   });
+  // }, []);
 
   const stopSong = () => {
     audioElement.current.pause();
@@ -47,12 +56,12 @@ const Player = props => {
 
   const clickHandler = id => {
     props.setCurrentSongIndex(id - 1);
-    console.log(id);
   };
 
   const doubleClickHandler = () => {
     stopSong();
     audioElement.current.play();
+    setIsPlaying(true);
   };
 
   return (
@@ -61,7 +70,7 @@ const Player = props => {
       <h3>Playing now</h3>
       <PlayerDetails song={props.songs[props.currentSongIndex]} />
       <PlayerControls isPlaying={isPlaying} setIsPlaying={setIsPlaying} skipSong={skipSong} stopSong={stopSong} />
-      
+
       <div className="container-songs-list">
         <select multiple size={songs.length}>
           {songs.map((item, key) => (
@@ -71,7 +80,6 @@ const Player = props => {
           ))}
         </select>
       </div>
-      
     </div>
   );
 };
