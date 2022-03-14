@@ -28,5 +28,5 @@ Songs array is in directory: /src/Data/. The file name is songs.js
 
 ## Components and style files
 
-Components are in directory: /src/Components. Each component has own style file
-Styles file are in directory: /src/css
+Components are in directory: /src/Components. Each component has own style file.
+Style files are in directory: /src/css
