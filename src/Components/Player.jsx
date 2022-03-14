@@ -8,6 +8,8 @@ import songs from "../Data/songs";
 const Player = props => {
   const audioElement = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filteredSongs, setFilteredSongs] = useState([]);
   
   useEffect(() => {
     if (isPlaying) {
@@ -68,20 +70,27 @@ const Player = props => {
   return (
     <div className="player">
       <audio src={props.songs[props.currentSongIndex].src} ref={audioElement}></audio>
-      <h3>Playing now</h3>
       <PlayerDetails song={props.songs[props.currentSongIndex]} />
       <PlayerControls isPlaying={isPlaying} setIsPlaying={setIsPlaying} skipSong={skipSong} stopSong={stopSong} />
 
       <div className="container-songs-list">
         <select multiple size={songs.length}>
-          {songs.map((item, key) => (
+          {
+          filteredSongs.length ? filteredSongs.map((id) => (
+            <option key={songs[id].id} onClick={() => clickHandler(songs[id].id)} onDoubleClick={() => doubleClickHandler()}>
+              {songs[id].id}.{songs[id].title}
+            </option>
+          ))
+          :
+          songs.map((item) => (
             <option key={item.id} onClick={() => clickHandler(item.id)} onDoubleClick={() => doubleClickHandler()}>
               {item.id}.{item.title}
             </option>
-          ))}
+          ))
+          }
         </select>
       </div>
-      <Search />
+      <Search setFilteredSongs={setFilteredSongs} search={search} setSearch={setSearch}/>
     </div>
   );
 };
