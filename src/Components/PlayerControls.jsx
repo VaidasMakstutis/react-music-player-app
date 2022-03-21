@@ -14,7 +14,7 @@ const PlayerControls = (props) => {
             <button className="stop-btn" onClick={props.stopSong}>
                 <FontAwesomeIcon icon={faStop} title="Stop" />
             </button>
-            <button className="skip-btn" onClick={() => props.skipSong(false)}>
+            <button className="skip-btn" onClick={() => props.skipSong()}>
                 <FontAwesomeIcon icon={faForward} title="Next song" />
             </button>
         </div>

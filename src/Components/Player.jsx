@@ -31,28 +31,25 @@ const Player = props => {
   const stopSong = () => {
     audioElement.current.pause();
     audioElement.current.currentTime = 0;
+    setIsPlaying(false);
   };
 
   const skipSong = (forwards = true) => {
     if (forwards) {
-      props.setCurrentSongIndex(() => {
-        let temp = props.currentSongIndex;
-        temp++;
-
-        if (temp > props.songs.length - 1) {
-          temp = 0;
+      props.setCurrentSongIndex((state) => {
+        state++;
+        if (state > props.songs.length - 1) {
+          state = 0;
         }
-        return temp;
+        return state;
       });
     } else {
-      props.setCurrentSongIndex(() => {
-        let temp = props.currentSongIndex;
-        temp--;
-
-        if (temp < 0) {
-          temp = props.songs.length - 1;
+      props.setCurrentSongIndex((state) => {
+        state--;
+        if (state < 0) {
+          state = props.songs.length - 1;
         }
-        return temp;
+        return state;
       });
     }
   };
@@ -76,14 +73,14 @@ const Player = props => {
       <div className="container-songs-list">
         <select multiple size={songs.length}>
           {
-          filteredSongs.length ? filteredSongs.map((id) => (
-            <option key={songs[id].id} onClick={() => clickHandler(songs[id].id)} onDoubleClick={() => doubleClickHandler()}>
-              {songs[id].id}.{songs[id].title}
+          filteredSongs.length ? filteredSongs.map((item, index) => (
+            <option selected={index === props.currentSongIndex} key={songs[item].id} onClick={() => clickHandler(songs[item].id)} onDoubleClick={() => doubleClickHandler()}>
+              {songs[item].id}.{songs[item].title}
             </option>
           ))
           :
-          songs.map((item) => (
-            <option key={item.id} onClick={() => clickHandler(item.id)} onDoubleClick={() => doubleClickHandler()}>
+          songs.map((item, index) => (
+            <option selected={index === props.currentSongIndex} key={item.id} onClick={() => clickHandler(item.id)} onDoubleClick={() => doubleClickHandler()}>
               {item.id}.{item.title}
             </option>
           ))
