@@ -28,18 +28,14 @@ const Player = props => {
   //   });
   // }, []);
 
-  // Filter with useEffect
   useEffect(() => {
    filter();
     },[search]);
 
   const filter = () => {
-    songs.filter(item => {
-      return item.title.toLowerCase().includes(search);
-    })
     setFilteredSongs(songs.filter(item => item.title.toLowerCase().includes(search)));
   }
-
+ 
   const stopSong = () => {
     audioElement.current.pause();
     audioElement.current.currentTime = 0;
