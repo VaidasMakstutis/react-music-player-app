@@ -28,6 +28,18 @@ const Player = props => {
   //   });
   // }, []);
 
+  // Filter with useEffect
+  useEffect(() => {
+   filter();
+    },[search]);
+
+  const filter = () => {
+    songs.filter(item => {
+      return item.title.toLowerCase().includes(search);
+    })
+    setFilteredSongs(songs.filter(item => item.title.toLowerCase().includes(search)));
+  }
+
   const stopSong = () => {
     audioElement.current.pause();
     audioElement.current.currentTime = 0;
@@ -74,13 +86,14 @@ const Player = props => {
         <select multiple size={songs.length}>
           {
           filteredSongs.length ? filteredSongs.map((item, index) => (
-            <option selected={index === props.currentSongIndex} key={songs[item].id} onClick={() => clickHandler(songs[item].id)} onDoubleClick={() => doubleClickHandler()}>
-              {songs[item].id}.{songs[item].title}
+            <option selected={index === props.currentSongIndex} key={item.id} onClick={() => clickHandler(item.id)} onDoubleClick={() => doubleClickHandler()}>
+              {item.id}.{item.title}
             </option>
           ))
           :
           songs.map((item, index) => (
-            <option selected={index === props.currentSongIndex} key={item.id} onClick={() => clickHandler(item.id)} onDoubleClick={() => doubleClickHandler()}>
+            <option selected={index === props.currentSongIndex} key={item.id} onClick={() => clickHandler(item.id)} 
+            onDoubleClick={() => doubleClickHandler()}>
               {item.id}.{item.title}
             </option>
           ))
